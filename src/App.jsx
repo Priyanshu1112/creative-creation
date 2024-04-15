@@ -3,7 +3,7 @@ import Filter from "./components/Filter";
 
 function App() {
   return (
-    <div className="w-full h-full flex p-5 overflow-hidden">
+    <div className="w-full h-full flex p-5 overflow-hidde">
       <Filter />
       <Creative />
     </div>

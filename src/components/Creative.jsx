@@ -16,10 +16,10 @@ const Creative = () => {
   return (
     <div
       className={`${
-        isAddCreativeOpen ? "translate-x-0" : "translate-x-[110%]"
-      }  flex-[.35] border-s-2 border-slate-700 transition-all px-5 relative`}
+        isAddCreativeOpen ? "top-0 translate-x-0" : "top-0 translate-x-[110%]"
+      }  md:flex-[.35] border-s-2 bg-white w-screen h-screen py-5 md:py-0 border-slate-700 transition-all px-5 md:relative absolute`}
     >
-      <div className="flex justify-between w-[90%] mx-auto">
+      <div className=" flex justify-between w-[90%] mx-auto">
         <h1 className="text-xl">Creative Creation</h1>
         <span
           onClick={() => {

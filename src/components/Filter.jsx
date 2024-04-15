@@ -38,12 +38,12 @@ const Filter = () => {
   }, [activeColor, creative, search]);
 
   return (
-    <div className="flex-[.65] h-full overflow-hidden pr-5">
+    <div className="flex-1 flex flex-col md:block md:flex-[.65] h-full overflow-hidden pr-5">
       <h1 className="text-xl mb-5">Filter By:</h1>
-      <div className="flex w-full gap-16">
+      <div className="flex w-full gap-5 md:gap-16">
         <div>
           <p className="mb-4">color</p>
-          <div className="grid grid-cols-4 gap-x-4 gap-y-2">
+          <div className="grid grid-cols-4 gap-x-2 md:gap-x-4 gap-y-2">
             {colors?.map((color, index) => {
               return (
                 <div
@@ -82,13 +82,13 @@ const Filter = () => {
             placeholder="search across title and subtitle"
             name=""
             id=""
-            className="p-2 text-sm w-[20vw] outline-slate-600 border border-slate-500 rounded-md"
+            className="p-2 text-xs md:text-sm w-[40vw] md:w-[20vw] outline-slate-600 border border-slate-500 rounded-md"
           />
         </div>
       </div>
 
       <div className=" w-full  flex items-center gap-10 mt-5">
-        <div className="w-[25vw] h-[1vmax] border-2 border-slate-700 rounded-md p-[1px]">
+        <div className="w-[30vw] md:w-[25vw] h-[1vmax] border-2 border-slate-700 rounded-md p-[1px]">
           <div
             style={{ width: `${(creative.length / 5) * 100}%` }}
             className={` h-full bg-black rounded-md`}
@@ -102,7 +102,7 @@ const Filter = () => {
           dispatch(toggleAddCreativeOpen());
         }}
         disabled={!isAddCreativeOpen && creative.length < 5 ? false : true}
-        className="px-3 py-1 border text-xs border-slate-800 rounded-md mt-3 disabled:border-slate-400 disabled:text-slate-400"
+        className="px-5 py-1 border text-xs border-slate-800 rounded-md mt-3 disabled:border-slate-400 disabled:text-slate-400"
       >
         + Add Creative
       </button>

@@ -15,25 +15,31 @@ const Filter = () => {
   useEffect(() => {
     let filteredCreative = creative;
 
-    // Filter based on activeColor
-    if (activeColor != null) {
-      filteredCreative = filteredCreative.filter(
+    console.log({ activeColor, search });
+
+    // Filter according to both active and search
+    if (activeColor != null && search) {
+      filteredCreative = creative.filter(
+        (item) =>
+          (item.color === colors[activeColor] && item.title.includes(search)) ||
+          item.subtitle.includes(search)
+      );
+      console.log({ both: filteredCreative });
+    }
+    // Filter according to only activeColor
+    else if (activeColor && !search) {
+      filteredCreative = creative.filter(
         (item) => item.color === colors[activeColor]
       );
     }
-
-    // Filter based on search
-    if (search !== "") {
-      const filteredOnSearch = creative.filter(
+    // Filter according to only search
+    else if (!activeColor && search) {
+      filteredCreative = creative.filter(
         (item) => item.title.includes(search) || item.subtitle.includes(search)
       );
-      // Concatenate the search results with filteredCreative and remove duplicates
-      filteredCreative = [
-        ...new Set([...filteredCreative, ...filteredOnSearch]),
-      ];
     }
 
-    // Update renderCreative with the filtered and merged results
+    // Update renderCreative with the filtered results
     setRenderCreative(filteredCreative);
   }, [activeColor, creative, search]);
 
